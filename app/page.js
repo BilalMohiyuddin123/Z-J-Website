@@ -58,7 +58,7 @@ export default function Home() {
           <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div className="relative group">
               <img
-                src="https://images.unsplash.com/photo-1581092921461-7d65507b399a?q=80&w=2070"
+                src="images/pu rooms.jpg"
                 className="rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-4 md:border-8 border-slate-50 relative z-10 transition-transform duration-500 group-hover:-translate-y-2"
                 alt="PU Panel Clean Room"
               />
@@ -69,7 +69,7 @@ export default function Home() {
                 Core Specialty
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mt-4 mb-8 uppercase leading-tight tracking-tighter">
-                High-Security <br />
+                <br />
                 <span className="text-blue-600 italic">Insulated PU Rooms</span>
               </h2>
               <p className="text-slate-600 text-lg md:text-xl mb-8 leading-relaxed italic border-l-4 border-blue-600 pl-6">
