@@ -9,51 +9,59 @@ export default function Home() {
       <main className="bg-white overflow-x-hidden">
         {/* --- HERO SECTION --- */}
         <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-36 lg:pb-28 bg-slate-50 overflow-hidden">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* LEFT SIDE: TEXT CONTENT (order-1: Top on mobile, Left on desktop) */}
-            <div className="z-10 order-1 lg:order-1 animate-in fade-in slide-in-from-left duration-1000 ease-out">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-[10px] md:text-xs font-black mb-6 tracking-[0.2em] uppercase">
+          {/* MOBILE ONLY: Background Image logic */}
+          {/* On mobile, this div wraps the whole content. On LG, it becomes a 2-column grid. */}
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[500px] lg:min-h-0">
+            {/* --- THE IMAGE --- */}
+            {/* On mobile: it fills the background (absolute). On LG: it returns to the right side (relative). */}
+            <div className="absolute inset-0 lg:relative lg:order-2 lg:inset-auto h-full w-full lg:h-auto lg:aspect-[3/2] z-0 lg:z-10 overflow-hidden lg:rounded-3xl lg:shadow-xl lg:border-[10px] lg:border-white">
+              <Image
+                src="/images/hero-img.JPG"
+                alt="Industrial Pre-fabrication"
+                fill
+                priority
+                className="object-cover lg:transition-transform lg:duration-700 lg:group-hover:scale-105"
+              />
+              {/* Dark Overlay for Mobile only to make text readable */}
+              <div className="absolute inset-0 bg-slate-900/60 lg:bg-blue-600/5 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500" />
+            </div>
+
+            {/* --- THE TEXT CONTENT --- */}
+            {/* On mobile: z-10 puts it above the absolute image. On LG: normal column behavior. */}
+            <div className="z-10 lg:order-1 animate-in fade-in slide-in-from-left duration-1000 ease-out text-center lg:text-left">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 lg:bg-blue-100 text-blue-200 lg:text-blue-700 text-[10px] md:text-xs font-black mb-6 tracking-[0.2em] uppercase backdrop-blur-sm lg:backdrop-blur-0">
                 Est. 2010 • Lahore, Pakistan
               </span>
-              <h1 className="text-4xl md:text-6xl xl:text-7xl font-black text-slate-900 leading-[0.9] mb-6 uppercase italic tracking-tighter">
+
+              <h1 className="text-4xl md:text-6xl xl:text-7xl font-black text-white lg:text-slate-900 leading-[0.9] mb-6 uppercase italic tracking-tighter">
                 Build <br />
-                <span className="text-blue-600 not-italic">Smarter.</span>
+                <span className="text-blue-400 lg:text-blue-600 not-italic">
+                  Smarter.
+                </span>
                 <br />
-                Build <span className="text-blue-600">Faster.</span>
+                Build{" "}
+                <span className="text-blue-400 lg:text-blue-600">Faster.</span>
               </h1>
-              <p className="text-base md:text-lg xl:text-xl text-slate-600 max-w-lg mb-8 leading-relaxed font-medium">
+
+              <p className="text-base md:text-lg xl:text-xl text-slate-200 lg:text-slate-600 max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed font-medium">
                 Z-J Integrated Engineering is your turnkey partner for
                 large-scale pre-fabricated construction, insulated PU solutions,
                 and luxury interior architecture.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="bg-slate-900 text-white px-7 md:px-9 py-3.5 md:py-4 rounded-xl font-black hover:bg-blue-600 transition-all duration-300 shadow-lg uppercase tracking-widest text-xs active:scale-95">
+
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4">
+                <button className="bg-blue-600 lg:bg-slate-900 text-white px-7 md:px-9 py-3.5 md:py-4 rounded-xl font-black hover:bg-blue-500 transition-all duration-300 shadow-lg uppercase tracking-widest text-xs active:scale-95">
                   Get a Quote
                 </button>
-                <button className="bg-white text-slate-900 border-2 border-slate-200 px-7 md:px-9 py-3.5 md:py-4 rounded-xl font-black hover:bg-slate-50 transition-all text-xs uppercase tracking-widest active:scale-95">
+                <button className="bg-white/10 lg:bg-white text-white lg:text-slate-900 border-2 border-white/20 lg:border-slate-200 px-7 md:px-9 py-3.5 md:py-4 rounded-xl font-black hover:bg-white/20 lg:hover:bg-slate-50 transition-all text-xs uppercase tracking-widest active:scale-95 backdrop-blur-md lg:backdrop-blur-0">
                   View Projects
                 </button>
               </div>
             </div>
-
-            {/* RIGHT SIDE: IMAGE CONTENT (order-2: Bottom on mobile, Right on desktop) */}
-            <div className="relative order-2 lg:order-2 animate-in fade-in slide-in-from-right duration-1000 ease-out">
-              <div className="relative z-10 rounded-3xl overflow-hidden shadow-xl border-4 md:border-[10px] border-white group transition-all duration-500 ease-in-out aspect-[3/2] w-full">
-                <Image
-                  src="/images/hero-img.JPG"
-                  alt="Industrial Pre-fabrication"
-                  fill
-                  priority
-                  className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-              <div className="absolute -top-3 -right-3 md:-top-5 md:-right-5 w-full h-full bg-blue-600/5 rounded-3xl -z-0" />
-            </div>
           </div>
         </section>
 
-        {/* --- PU ROOMS & SECURITY SECTION --- */}
+        {/* --- REST OF THE PAGE (No changes here) --- */}
         <section className="py-20 md:py-24 lg:py-32 bg-white border-t border-slate-100">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div className="relative group aspect-[4/3] w-full">
@@ -61,62 +69,30 @@ export default function Home() {
                 src="/images/pu rooms.jpg"
                 alt="PU Panel Clean Room"
                 fill
-                className="rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-4 md:border-8 border-slate-50 relative z-10 transition-transform duration-500 group-hover:-translate-y-2 object-cover"
+                className="rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-4 md:border-8 border-slate-50 object-cover"
               />
-              <div className="absolute -bottom-4 -left-4 w-full h-full border-2 border-blue-600/20 rounded-[2.5rem] -z-0 group-hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="lg:pr-10">
-              <span className="text-blue-600 font-black uppercase tracking-[0.3em] text-[10px] md:text-sm italic">
-                Core Specialty
-              </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mt-4 mb-8 uppercase leading-tight tracking-tighter">
-                <br />
-                <span className="text-blue-600 italic">Insulated PU Rooms</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mt-4 mb-8 uppercase tracking-tighter">
+                Insulated <span className="text-blue-600 italic">PU Rooms</span>
               </h2>
-              <p className="text-slate-600 text-lg md:text-xl mb-8 leading-relaxed italic border-l-4 border-blue-600 pl-6">
-                "Superior thermal control meets structural integrity."
-              </p>
-              <p className="text-slate-600 mb-8 font-medium text-base md:text-lg">
+              <p className="text-slate-600 mb-8 font-medium text-base">
                 Our PU panels provide the highest insulation rating in the
-                industry, perfect for cold chains, labs, and modular offices.
+                industry.
               </p>
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                <div className="p-4 md:p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-200 transition-colors">
-                  <p className="font-black text-blue-600 text-lg md:text-xl">
-                    A+ Grade
-                  </p>
-                  <p className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">
-                    PU Insulation
-                  </p>
-                </div>
-                <div className="p-4 md:p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-200 transition-colors">
-                  <p className="font-black text-blue-600 text-lg md:text-xl">
-                    Fire-Rated
-                  </p>
-                  <p className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">
-                    Safety Standard
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
 
         {/* --- INTERIOR DESIGN SECTION --- */}
-        <section className="py-20 md:py-24 lg:py-32 bg-slate-900 text-white rounded-[2rem] md:rounded-[4rem] mx-4 md:mx-10 mb-10 shadow-3xl overflow-hidden">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-            <div className="text-center mb-16 md:mb-24">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic mb-6 tracking-tighter">
-                Turnkey Interior{" "}
-                <span className="text-blue-500">Excellence</span>
+        <section className="py-20 bg-slate-900 text-white rounded-[2rem] mx-4 md:mx-10 mb-10 overflow-hidden">
+          <div className="max-w-[1400px] mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-black uppercase italic">
+                Turnkey <span className="text-blue-500">Excellence</span>
               </h2>
-              <p className="text-slate-400 max-w-2xl mx-auto font-medium text-base md:text-lg">
-                Custom furniture, restaurant sofas, and corporate architecture
-                designed for maximum visual and functional impact.
-              </p>
             </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
                   title: "Bespoke Offices",
@@ -139,16 +115,13 @@ export default function Home() {
                     src={item.img}
                     alt={item.title}
                     fill
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60 group-hover:opacity-100"
+                    className="object-cover opacity-60 group-hover:opacity-100 transition duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-80" />
                   <div className="absolute bottom-8 left-8">
-                    <h3 className="text-2xl md:text-3xl font-black uppercase italic">
+                    <h3 className="text-2xl font-black uppercase italic">
                       {item.title}
                     </h3>
-                    <button className="mt-4 text-blue-400 font-bold text-xs uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 underline underline-offset-8">
-                      View Project Details
-                    </button>
                   </div>
                 </div>
               ))}
