@@ -38,18 +38,18 @@ const styles = `
 export default function ProjectsPage() {
   // Array for 10 projects. Update the 'src' with your actual image filenames.
   const projects = [
-    { id: 1, src: "/images/p1.jpg" },
-    { id: 2, src: "/images/p2.jpg" },
-    { id: 3, src: "/images/p3.jpg" },
-    { id: 4, src: "/images/p4.jpg" },
-    { id: 5, src: "/images/p5.jpg" },
-    { id: 6, src: "/images/p6.jpg" },
-    { id: 7, src: "/images/p7.jpg" },
-    { id: 8, src: "/images/p8.jpg" },
-    { id: 9, src: "/images/p9.jpg" },
-    { id: 10, src: "/images/p10.jpg" },
-    { id: 11, src: "/images/p11.jpg" },
-    { id: 12, src: "/images/p12.jpg" },
+    { id: 1, src: "/images/p1.JPG" },
+    { id: 2, src: "/images/p2.JPG" },
+    { id: 3, src: "/images/p3.JPG" },
+    { id: 4, src: "/images/p4.JPG" },
+    { id: 5, src: "/images/p5.JPG" },
+    { id: 6, src: "/images/p6.JPG" },
+    { id: 7, src: "/images/p7.JPG" },
+    { id: 8, src: "/images/p8.JPG" },
+    { id: 9, src: "/images/p9.JPG" },
+    { id: 10, src: "/images/p10.JPG" },
+    { id: 11, src: "/images/p11.JPG" },
+    { id: 12, src: "/images/p12.JPG" },
   ];
 
   return (

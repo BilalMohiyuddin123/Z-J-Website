@@ -144,7 +144,7 @@ export default function Home() {
       <style>{styles}</style>
       <Navbar />
       <main className="bg-white overflow-x-hidden">
-        {/* --- HERO SECTION --- */}
+        {/* --- HERO SECTION -- */}
         <section className="relative min-h-[85vh] pt-20 pb-10 md:pt-24 md:pb-12 lg:pt-32 lg:pb-20 bg-[#020617] overflow-hidden flex items-center justify-center">
           <div className="absolute inset-0 z-0">
             <Image
