@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -7,48 +8,47 @@ export default function Home() {
       <Navbar />
       <main className="bg-white overflow-x-hidden">
         {/* --- HERO SECTION --- */}
-        {/* Responsive Padding: pt-24 for mobile, pt-32 for laptop, pt-40 for large desktops */}
-        <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 bg-slate-50 overflow-hidden">
-          <div className="max-w-[1600px] mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* LEFT SIDE: TEXT CONTENT (Slide-in from left) */}
-            <div className="z-10 order-2 lg:order-1 animate-in fade-in slide-in-from-left duration-1000 ease-out">
+        <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-36 lg:pb-28 bg-slate-50 overflow-hidden">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* LEFT SIDE: TEXT CONTENT (order-1: Top on mobile, Left on desktop) */}
+            <div className="z-10 order-1 lg:order-1 animate-in fade-in slide-in-from-left duration-1000 ease-out">
               <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-[10px] md:text-xs font-black mb-6 tracking-[0.2em] uppercase">
                 Est. 2010 • Lahore, Pakistan
               </span>
-              <h1 className="text-5xl md:text-7xl xl:text-8xl 2xl:text-9xl font-black text-slate-900 leading-[0.85] mb-8 uppercase italic tracking-tighter">
+              <h1 className="text-4xl md:text-6xl xl:text-7xl font-black text-slate-900 leading-[0.9] mb-6 uppercase italic tracking-tighter">
                 Build <br />
                 <span className="text-blue-600 not-italic">Smarter.</span>
                 <br />
                 Build <span className="text-blue-600">Faster.</span>
               </h1>
-              <p className="text-lg md:text-xl xl:text-2xl text-slate-600 max-w-xl mb-10 leading-relaxed font-medium">
+              <p className="text-base md:text-lg xl:text-xl text-slate-600 max-w-lg mb-8 leading-relaxed font-medium">
                 Z-J Integrated Engineering is your turnkey partner for
                 large-scale pre-fabricated construction, insulated PU solutions,
                 and luxury interior architecture.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-slate-900 text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black hover:bg-blue-600 transition-all duration-300 shadow-xl uppercase tracking-widest text-xs md:text-sm active:scale-95">
+                <button className="bg-slate-900 text-white px-7 md:px-9 py-3.5 md:py-4 rounded-xl font-black hover:bg-blue-600 transition-all duration-300 shadow-lg uppercase tracking-widest text-xs active:scale-95">
                   Get a Quote
                 </button>
-                <button className="bg-white text-slate-900 border-2 border-slate-200 px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black hover:bg-slate-50 transition-all text-xs md:text-sm uppercase tracking-widest active:scale-95">
+                <button className="bg-white text-slate-900 border-2 border-slate-200 px-7 md:px-9 py-3.5 md:py-4 rounded-xl font-black hover:bg-slate-50 transition-all text-xs uppercase tracking-widest active:scale-95">
                   View Projects
                 </button>
               </div>
             </div>
 
-            {/* RIGHT SIDE: IMAGE CONTENT (Straight & Hover Transition) */}
-            <div className="relative order-1 lg:order-2 animate-in fade-in slide-in-from-right duration-1000 ease-out">
-              <div className="relative z-10 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border-[8px] md:border-[12px] border-white group transition-all duration-500 ease-in-out">
-                <img
+            {/* RIGHT SIDE: IMAGE CONTENT (order-2: Bottom on mobile, Right on desktop) */}
+            <div className="relative order-2 lg:order-2 animate-in fade-in slide-in-from-right duration-1000 ease-out">
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-xl border-4 md:border-[10px] border-white group transition-all duration-500 ease-in-out aspect-[3/2] w-full">
+                <Image
                   src="/images/hero-img.JPG"
-                  className="w-full h-[400px] md:h-[500px] xl:h-[650px] object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
                   alt="Industrial Pre-fabrication"
+                  fill
+                  priority
+                  className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
                 />
-                {/* Subtle overlay on hover */}
                 <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              {/* Straight Decorative Blue Box behind image */}
-              <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-full h-full bg-blue-600/10 rounded-[2rem] md:rounded-[3rem] -z-0" />
+              <div className="absolute -top-3 -right-3 md:-top-5 md:-right-5 w-full h-full bg-blue-600/5 rounded-3xl -z-0" />
             </div>
           </div>
         </section>
@@ -56,11 +56,12 @@ export default function Home() {
         {/* --- PU ROOMS & SECURITY SECTION --- */}
         <section className="py-20 md:py-24 lg:py-32 bg-white border-t border-slate-100">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
-            <div className="relative group">
-              <img
-                src="images/pu rooms.jpg"
-                className="rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-4 md:border-8 border-slate-50 relative z-10 transition-transform duration-500 group-hover:-translate-y-2"
+            <div className="relative group aspect-[4/3] w-full">
+              <Image
+                src="/images/pu rooms.jpg"
                 alt="PU Panel Clean Room"
+                fill
+                className="rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-4 md:border-8 border-slate-50 relative z-10 transition-transform duration-500 group-hover:-translate-y-2 object-cover"
               />
               <div className="absolute -bottom-4 -left-4 w-full h-full border-2 border-blue-600/20 rounded-[2.5rem] -z-0 group-hover:scale-105 transition-transform duration-500" />
             </div>
@@ -132,12 +133,13 @@ export default function Home() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="group relative h-[400px] md:h-[500px] overflow-hidden rounded-[2rem] border border-white/10"
+                  className="group relative aspect-square overflow-hidden rounded-[2rem] border border-white/10"
                 >
-                  <img
+                  <Image
                     src={item.img}
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60 group-hover:opacity-100"
                     alt={item.title}
+                    fill
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60 group-hover:opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                   <div className="absolute bottom-8 left-8">
